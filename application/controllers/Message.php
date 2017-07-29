@@ -13,7 +13,7 @@ class Message extends CI_Controller {
     public function index()
     {
         $this->load->view("include/header");
-        $this->load->view("youtube");
+        $this->load->view("home");
         $this->load->view("include/footer");
     }
 
@@ -22,22 +22,13 @@ class Message extends CI_Controller {
        $this->load->model("Message_model");
        $this->load->view("include/header");
        $data['messages'] = $this->Message_model->get_last_ten_entries();
-//       foreach ($messages as $message){
-//           echo $message->id;
-//           echo $message->text;
-//           echo $message->adress;
-//           echo $message->updatedAt;
-//       }
-//       $this->load->library('table');
-//       var_dump($result);
-
        $this->load->view('display_messages', $data);
        $this->load->view("include/footer");
 
    }
 
     public function insert_to_table(){
-//        $this->load->model("Message_model");
+
         $this->load->view("include/header");
 
         $this->load->view('send_message');
@@ -60,6 +51,10 @@ class Message extends CI_Controller {
 
             $this->Message_model->insert_entry($data);
 
+            $client = new GuzzleHttp\Client();
+
+            $client->post('https://api.telegram.org/bot'. $this->token . '/sendmessage?chat_id=' . $data['adress'] . '&text=' . $data['text']);
+
             redirect(base_url() . "show-messages");
 
         }else{
@@ -81,25 +76,17 @@ class Message extends CI_Controller {
     public function getUpdates(){
         $client = new GuzzleHttp\Client();
 
-        $response = $client->get('https://api.telegram.org/bot445328048:AAFhsoyG9gBbcXxIWt3dMfNF8Q2ZaKjAvUg/getupdates')->getBody();
+        $response = $client->get('https://api.telegram.org/bot445328048:AAFhsoyG9gBbcXxIWt3dMfNF8Q2ZaKjAvUg/getupdates?allowed_updates=message')->getBody();
 
-//        $obj = json_decode(json_encode($response), true);
-        $obj = json_decode($response);
+        $obj = json_decode($response, true);
 
-//        var_dump($obj);
-        var_dump(json_decode(json_encode($obj->result[0], true)));
-    }
+        $received_messages = $obj['result'];
 
-    public function sendMessage(){
-        $message = [
-            'chat_id' => '193605619',
-            'text' => 'huinane'
-        ];
+        $data['received_messages'] = $received_messages;
 
-        $x = json_encode($message);
+        $this->load->view("include/header");
+        $this->load->view('received_messages', $data);
+        $this->load->view("include/footer");
 
-        $client = new GuzzleHttp\Client();
-
-        $client->post('https://api.telegram.org/bot445328048:AAFhsoyG9gBbcXxIWt3dMfNF8Q2ZaKjAvUg/sendmessage?chat_id=' . $message['chat_id'] . '&text=' . $message['text']);
     }
 }

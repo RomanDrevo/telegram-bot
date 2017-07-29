@@ -58,4 +58,4 @@ $route['show-messages'] = 'message/read_from_table';
 $route['send-message'] = 'message/insert_to_table';
 $route['get-me'] = 'message/getMe';
 $route['get-updates'] = 'message/getUpdates';
-$route['send-message'] = 'message/sendMessage';
+

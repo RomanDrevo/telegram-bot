@@ -37,11 +37,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <a id="logo" class="pull-left" href="<?php echo base_url(); ?>"></a>
-                <div class="nav-collapse collapse pull-right">
+
+                <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
-                       
+                        <li class="active"><a href="<?php echo base_url(); ?>send-message">Send Message to User</a></li>
+                        <li class="active"><a href="<?php echo base_url(); ?>show-messages">Messages from Bot</a></li>
+                        <li class="active"><a href="<?php echo base_url(); ?>get-updates">Messages to Bot</a></li>
+
                     </ul>        
                 </div><!--/.nav-collapse -->
             </div>

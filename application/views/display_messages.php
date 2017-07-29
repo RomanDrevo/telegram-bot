@@ -1,11 +1,11 @@
-
+<h1>Received Messages from Telegram Bot</h1>
 
 <div class="wy-table-responsive">
     <table class="table table-bordered">
         <tr>
             <th>ID</th>
             <th>Message</th>
-            <th>Address</th>
+            <th>User ID</th>
             <th>Sent</th>
         </tr>
 
@@ -20,11 +20,3 @@
         <?php endforeach; ?>
     </table>
 </div>
-<?php //foreach ($messages as $message) :  ?>
-<!---->
-<!--<h1> --><?php //echo $message->id; ?><!-- </h1>-->
-<!--<h1> --><?php //echo $message->text; ?><!-- </h1>-->
-<!--<h1> --><?php //echo $message->adress; ?><!-- </h1>-->
-<!--<h1> --><?php //echo $message->updatedAt; ?><!-- </h1>-->
-<!---->
-<?php //endforeach; ?>
