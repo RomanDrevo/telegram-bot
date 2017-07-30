@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>template/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>template/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>template/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>template/css/main.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>template/css/style.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>template/css/sl-slide.css">
 
     <script src="<?php echo base_url(); ?>template/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
