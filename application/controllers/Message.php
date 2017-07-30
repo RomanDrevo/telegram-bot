@@ -66,7 +66,7 @@ class Message extends CI_Controller {
 
         $client = new GuzzleHttp\Client();
 
-        $response = $client->get('https://api.telegram.org/bot445328048:AAFhsoyG9gBbcXxIWt3dMfNF8Q2ZaKjAvUg/getme')->getBody();
+        $response = $client->get('https://api.telegram.org/bot' . $this->token . '/getme')->getBody();
 
         $obj = json_decode($response);
 
@@ -76,7 +76,7 @@ class Message extends CI_Controller {
     public function getUpdates(){
         $client = new GuzzleHttp\Client();
 
-        $response = $client->get('https://api.telegram.org/bot445328048:AAFhsoyG9gBbcXxIWt3dMfNF8Q2ZaKjAvUg/getupdates?allowed_updates=message')->getBody();
+        $response = $client->get('https://api.telegram.org/bot' . $this->token . '/getupdates?allowed_updates=message')->getBody();
 
         $obj = json_decode($response, true);
 
